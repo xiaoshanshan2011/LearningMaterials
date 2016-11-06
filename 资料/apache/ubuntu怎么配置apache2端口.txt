@@ -1,0 +1,5 @@
+修改 /etc/apache2/ports.conf 文件添加一个新的监听端口
+Listen 80
+Listen 8080
+
+然后重启服务 sudo /etc/init.d/apache2 restart

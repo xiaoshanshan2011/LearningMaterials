@@ -1,0 +1,19 @@
+方法是：
+
+使用vi 或vim或gedit命令打开/etc/profile文件，这个配置文件配置系统全局的，当然你也可以只配置个人用户的，打开命令行
+
+vi ～/.profile
+
+或
+
+全局的是vi /etc/profile
+
+打开后在文件内加入
+
+pulseaudio --start --log-target=syslog
+
+然后
+
+source /etc/profile
+
+问题即可解决

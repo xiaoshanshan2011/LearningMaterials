@@ -1,0 +1,40 @@
+ubuntu下配置JDK7环境变量
+ubuntu下JDK配置本质上和win是一样的：
+
+1、去官网下载JDK7，找jdk-7u21-linux-i586.tar.gz并下载：http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html
+
+2、解压后得到名字为jdk1.7.0_21的文件夹，将其复制到 /usr/lib/jvm下（需要新建jvm文件夹）。
+
+3、配置jdk环境变量：
+
+在启动终端并输入
+
+gedit /etc/profile  
+在末尾添加一下配置，保存并退出
+
+#set jdk environment  
+export JAVA_HOME=/usr/lib/jvm/jdk1.7.0_21  
+export CLASSPATH=.:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$CLASSPATH  
+export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH  
+终端输入一下命令使配置生效
+
+source /etc/profile  
+4、查看配置是否成功。在终端输入
+
+java -version  
+如果显示版本是1.7.0.21则配置成功，如下显示：
+
+java version "1.7.0_21"  
+Java(TM) SE Runtime Environment (build 1.7.0_21-b11)  
+Java HotSpot(TM) Server VM (build 23.21-b01, mixed mode)  
+ 
+
+如果显示仍是openJDK，执行步骤5，再测试
+
+5、配置默认JDK，ubuntu下默认JDK是openJDK。。终端输入
+
+sudo update-alternatives --install /usr/lib/java java /usr/lib/jvm/jdk1.7.0_17/bin/java 300  
+sudo update-alternatives --install /usr/lib/javac javac /usr/lib/jvm/jdk1.7.0_17/bin/javac 300  
+执行下面命令，配置需要默认的JDK
+
+sudo update-alternatives --config java  
