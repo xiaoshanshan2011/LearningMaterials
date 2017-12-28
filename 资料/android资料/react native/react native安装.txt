@@ -1,0 +1,19 @@
+一、react native安装和环境配置
+1、安装node
+
+2、安装Yarn
+
+3、安装Watchman
+
+4、安装Flow
+
+5、配置Android SDK环境变量
+export ANDROID_HOME=~/Library/Android/sdk
+PATH="~/Android/Sdk/tools:~/Android/Sdk/platform-tools:${PATH}"
+export PATH
+
+6、测试安装
+react-native init AwesomeProject
+cd AwesomeProject
+react-native run-android
+
